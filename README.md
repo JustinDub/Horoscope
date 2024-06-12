@@ -1,7 +1,7 @@
 # Horoscope
 ## Description
-Application permettant de récupérer le signe astrologique du calendrier lunaire associé à chaque date de naissance
-Une page menu est affichée par défaut pour visualiser certains résultats
+Application permettant de récupérer le signe astrologique du calendrier lunaire associé à chaque date de naissance\
+Une page menu est affichée par défaut pour visualiser certains résultats\
 La route /horoscope/:birthdate est aussi accessible directement
 
 ## Pré-requis
