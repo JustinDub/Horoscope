@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag horoscope:$(date +%s)
+      run: docker build . --file docker/Dockerfile --tag horoscope:$(date +%s)
 
 
   test:
@@ -25,4 +25,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile-tests-ci --tag horoscope-tests:$(date +%s)
+      run: docker build . --file docker/Dockerfile-tests-ci --tag horoscope-tests:$(date +%s)

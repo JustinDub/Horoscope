@@ -15,9 +15,9 @@ Lancer la commande `npm i` à la racine du projet
 `npm run test`
 
 ## Lancer l'application dans un container docker
-Construction de l'image `docker build -t horoscope-1 .`\
+Construction de l'image `docker build -t horoscope-1 docker/.`\
 Montage du container `docker run -dp 127.0.0.1:3000:3000 horoscope-1`
 
 ## Lancer les tests dans un container docker
-Construction de l'image `docker build -t horoscope-tests-1 -f Dockerfile-tests .`\
+Construction de l'image `docker build -t horoscope-tests-1 -f docker/Dockerfile-tests .`\
 Montage du container `docker run horoscope-tests-1`
