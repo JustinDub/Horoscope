@@ -3,8 +3,5 @@ FROM node:18-alpine
 WORKDIR /.
 COPY . .
 
-# Launch with docker build
-RUN npm run simpletest
-
 # Launch with docker run
-# CMD ["npm", "run", "simpletest"]
+CMD ["npm", "run", "simpletest"]
