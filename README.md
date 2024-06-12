@@ -5,7 +5,7 @@ Une page menu est affichée par défaut pour visualiser certains résultats
 La route /horoscope/:birthdate est aussi accessible directement
 
 ## Pré-requis
-Installer node et docker
+Installer node et docker\
 Lancer la commande `npm i` à la racine du projet
 
 ## Lancer l'application depuis un terminal
