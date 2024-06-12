@@ -1,12 +1,12 @@
 const express = require('express');
 const getZodiacSign = require('horoscope').getZodiac;
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
     let links = ``;
     const currentYear = new Date().getFullYear();
-    for(let year=currentYear; year>1990; year--)  links += `<a href="http://localhost:3000/horoscope/${year}">${year}</a>\n`;
+    for(let year=currentYear; year>1990; year--)  links += `<a href="http://localhost:${port}/horoscope/${year}">${year}</a>\n`;
     const isoFormat = "2002-09-30"
     const stringFormat = "Thu Jan 01 1970 00:00:00 GMT+0000"
     const longFormat = "December 17, 1995 03:24:00"
@@ -18,12 +18,12 @@ app.get('/', (req, res) => {
         </p>
         <h2>You can also try more detailed date formats such as :</h2>
         <ul>
-            <li><a href="http://localhost:3000/horoscope/${isoFormat}">${isoFormat}</a></li>
-            <li><a href="http://localhost:3000/horoscope/${stringFormat}">${stringFormat}</a></li>
-            <li><a href="http://localhost:3000/horoscope/${longFormat}">${longFormat}</a></li>
+            <li><a href="http://localhost:${port}/horoscope/${isoFormat}">${isoFormat}</a></li>
+            <li><a href="http://localhost:${port}/horoscope/${stringFormat}">${stringFormat}</a></li>
+            <li><a href="http://localhost:${port}/horoscope/${longFormat}">${longFormat}</a></li>
         </ul>
         <h2>Want to test your own birthdate ?</h2>
-        <p style="margin-left: 25px">localhost:3000/horoscope/{your_birthdate}</p>
+        <p style="margin-left: 25px">localhost:${port}/horoscope/{your_birthdate}</p>
     `;
     res.status(200).send(list)
 })
@@ -42,13 +42,9 @@ app.get('/horoscope/:birthdate', (req, res) => {
 app.get('*', (req, res)=> {
     const notFound = `
         <h1>Page not Found</h1>
-        <a href="http://localhost:3000">Go back to Home Page</a>
+        <a href="http://localhost:${port}">Go back to Home Page</a>
     `;
     res.status(404).send(notFound)
-})
-
-app.listen(port, () => {
-  console.log(`Horoscope app listening on port ${port}`)
 })
 
 module.exports = app;

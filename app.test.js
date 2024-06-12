@@ -1,5 +1,13 @@
-const app = require('./App')
+const app = require('./app')
 const axios = require('axios')
+let server;
+
+beforeAll(async () => {
+  // let's create a server to receive integration calls
+  server = app.listen(3000, () => {
+    console.log('Example app listening on port 3000!');
+  });
+});
   
 describe('2015 horoscope', () => {
   test('2015 should return Goat (since not using lunar calendar)', async () => {
@@ -61,3 +69,5 @@ describe('Invalid Date', () => {
     }
   })
 })
+
+afterAll(() => { console.log('closing...'); server.close(); });
